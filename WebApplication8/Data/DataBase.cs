@@ -15,6 +15,7 @@ namespace WebApplication8.Data
 
         public DbSet<Models.Movie> Movie { get; set; }
         public DbSet<Models.SuperStars> SuperStars { get; set; }
+        public DbSet<Models.Employee> Employees { get; set; }
 
     }
 }

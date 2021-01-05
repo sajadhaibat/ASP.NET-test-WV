@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASpNEtCoreMain", "WebApplication8\ASpNEtCoreMain.csproj", "{42BFA9F3-CFB5-442A-B0F0-262A4C56BFFA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "core-mvc", "..\core-mvc\core-mvc\core-mvc.csproj", "{A8AE0425-1D38-4CC6-AE6E-3771F20141BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{42BFA9F3-CFB5-442A-B0F0-262A4C56BFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42BFA9F3-CFB5-442A-B0F0-262A4C56BFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42BFA9F3-CFB5-442A-B0F0-262A4C56BFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8AE0425-1D38-4CC6-AE6E-3771F20141BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8AE0425-1D38-4CC6-AE6E-3771F20141BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8AE0425-1D38-4CC6-AE6E-3771F20141BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8AE0425-1D38-4CC6-AE6E-3771F20141BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
