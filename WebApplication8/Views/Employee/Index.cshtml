@@ -19,35 +19,44 @@
                         <th>Full Name</th>
                         <th>Position</th>
                         <th>Remark</th>
+                        <th>Movie Name</th>
+                        <th>SuperStar Name</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Id)
-                            </td>
-                            <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
-                                <a href="#" class="delete_province_button" data-toggle="modal" data-target="#delete_province"
-                                   data-emp-id="@item.Id">Delete</a>
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FirstName)  @Html.DisplayFor(modelItem => item.LastName)
-                            </td>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                            <a href="#" class="delete_province_button" data-toggle="modal" data-target="#delete_province"
+                               data-emp-id="@item.Id">Delete</a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)  @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
 
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Position)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Remark)
-                            </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Position)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Remark)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Movie.Title)
+                        </td>
 
-                        </tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SuperStars.name)
+                        </td>
+
+                    </tr>
                     }
                 </tbody>
             </table>

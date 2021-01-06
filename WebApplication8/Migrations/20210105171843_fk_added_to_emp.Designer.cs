@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication8.Data;
 
 namespace WebApplication8.Migrations
 {
     [DbContext(typeof(DataBase))]
-    partial class DataBaseModelSnapshot : ModelSnapshot
+    [Migration("20210105171843_fk_added_to_emp")]
+    partial class fk_added_to_emp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,13 +37,9 @@ namespace WebApplication8.Migrations
 
                     b.Property<decimal>("Remark");
 
-                    b.Property<int?>("SuperStarsId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("MovieId");
-
-                    b.HasIndex("SuperStarsId");
 
                     b.ToTable("Employees");
                 });
@@ -86,10 +84,6 @@ namespace WebApplication8.Migrations
                         .WithMany()
                         .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("WebApplication8.Models.SuperStars", "SuperStars")
-                        .WithMany()
-                        .HasForeignKey("SuperStarsId");
                 });
 #pragma warning restore 612, 618
         }

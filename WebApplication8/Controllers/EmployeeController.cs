@@ -20,7 +20,9 @@ namespace ASpNEtCoreMain.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var employees = await _context.Employees.ToListAsync();
+           
+            // It loads movie relationship data since it has forigen key
+            var employees = await _context.Employees.Include(mov =>mov.Movie).Include(s => s.SuperStars).ToListAsync();
             return View(employees);
         }
 
