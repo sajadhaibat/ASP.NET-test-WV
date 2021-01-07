@@ -4,13 +4,18 @@
     ViewData["Title"] = "Create";
 }
 
+
+@section Styles {
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+}
 <h2>Create</h2>
 
 <h4>Employee</h4>
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <form   asp-controller="Employee" asp-action="Store" >
+        <form asp-controller="Employee" asp-action="Store">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
 
@@ -29,8 +34,8 @@
                     </div>
                 </div>
             </div>
-  
-          
+
+
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -46,7 +51,7 @@
                         <span asp-validation-for="Remark" class="text-danger"></span>
                     </div>
                 </div>
-        
+
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -63,14 +68,14 @@
                     <div class="form-group">
                         <label asp-for="SuperStarsId" class="control-label">Teacher</label>
                         <select asp-for="SuperStarsId" class="form-control" asp-items="ViewBag.superStars">
-                          <option value="">Selet a Super Star </option>
+                            <option value="">Selet a Super Star </option>
                         </select>
                         <span asp-validation-for="SuperStarsId" class="text-danger"></span>
                     </div>
                 </div>
             </div>
-            
-            
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -84,4 +89,12 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function () {
+        $('#SuperStarsId').select2();
+    });
+
+    </script>
 }
