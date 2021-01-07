@@ -20,6 +20,8 @@ namespace WebApplication8.Models
         public int MovieId { get; set; }
 
         public SuperStars SuperStars { get; set; }
-       
+        [ForeignKey("SuperStarsId")]
+        public int? SuperStarsId { get; set; }
+
     }
 }

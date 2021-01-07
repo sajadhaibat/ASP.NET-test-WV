@@ -48,6 +48,27 @@
                 </div>
         
             </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="MovieId" class="control-label">Teacher</label>
+                        <select asp-for="MovieId" class="form-control" asp-items="ViewBag.movies">
+                            <option value="">Selet a Movie   </option>
+                        </select>
+                        <span asp-validation-for="MovieId" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SuperStarsId" class="control-label">Teacher</label>
+                        <select asp-for="SuperStarsId" class="form-control" asp-items="ViewBag.superStars">
+                          <option value="">Selet a Super Star </option>
+                        </select>
+                        <span asp-validation-for="SuperStarsId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
             
             
             <div class="form-group">

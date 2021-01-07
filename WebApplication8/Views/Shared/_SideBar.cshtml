@@ -12,139 +12,145 @@
                 </li>
 
                 <li>
-                    <a  asp-controller="Dashboard" asp-action="Dashboard"><i class="la la-dashboard"></i> <span>Dashboard</span></a>
+                    <a asp-controller="Dashboard" asp-action="Dashboard"><i class="la la-dashboard"></i> <span>Dashboard</span></a>
                 </li>
 
                 <li class="submenu">
                     <a href="#"><i class="la la-users"></i> <span class="menu-title">People</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a  class="active" target="_blank" asp-controller="Employee" asp-action="Create" >Add Employee</a></li>
-                        <li><a asp-controller="Employee" asp-action="Index" >All People</a></li>
+                        <li><a class="active" target="_blank" asp-controller="Employee" asp-action="Create">Add Employee</a></li>
+                        <li><a asp-controller="Employee" asp-action="Index">All People</a></li>
                     </ul>
+                </li>
+                <li>
+                    <a asp-controller="Movies" asp-action="Index"><i class="la la-dashboard"></i> <span>Movies</span></a>
+                </li>
+                <li>
+                    <a asp-controller="SuperStars" asp-action="Index"><i class="la la-dashboard"></i> <span>Super Stars</span></a>
                 </li>
 
 
                 @*<li class="submenu">
-                    <a href="#"><i class="la la-edit"></i> <span class="menu-title">Contract</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a @if (\Request::is('create-contract*')) class="active" @endif href="{{ route('contract.create') }}" target="_blank">Add Contract</a></li>
-                        <li><a @if (\Request::is('contract*')) class="active" @endif href="{{url('/contract')}}">All Contracts</a></li>
-                    </ul>
+            <a href="#"><i class="la la-edit"></i> <span class="menu-title">Contract</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+                <li><a @if (\Request::is('create-contract*')) class="active" @endif href="{{ route('contract.create') }}" target="_blank">Add Contract</a></li>
+                <li><a @if (\Request::is('contract*')) class="active" @endif href="{{url('/contract')}}">All Contracts</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="la la-calendar"></i> <span class="menu-title">Timesheet</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+                <li><a @if (\Request::is('mhttimes')) class="active" @endif href="{{ url('/mhttimes') }}">FHID Times</a></li>
+                <li><a @if (\Request::is('overtimes')) class="active" @endif href="{{ url('/overtimes') }}">Overtimes</a></li>
+                <li><a @if (\Request::is('timesheet')) class="active" @endif href="{{ url('/timesheet') }}">Generate Multiple</a></li>
+                <li><a @if (\Request::is('timesheet-single')) class="active" @endif href="{{ url('/timesheet-single') }}">Generate Single</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="la la-sign-out"></i> <span class="menu-title">Absences</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+                <li><a @if (\Request::is('leaves*')) class="active" @endif href="{{ url('/leaves') }}">Absence Request</a></li>
+                <li><a @if (\Request::is('leave-records*')) class="active" @endif href="{{ url('/leave-records') }}">Absence Records</a></li>
+                <li><a @if (\Request::is('leave-report*')) class="active" @endif href="{{ url('/leave-report') }}"> Absence Reports</a></li>
+                <li><a @if (\Request::is('leaveTransfer*')) class="active" @endif href="{{ url('/leaveTransfer') }}">Absence Adjustment</a></li>
+
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="la la-money"></i> <span class="menu-title">Payments</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+                <li><a @if (\Request::is('advance_payments*')) class="active" @endif href="{{ url('advance_payments') }}">Advance Payment</a></li>
+                <li><a @if (\Request::is('adjustments*')) class="active" @endif href="{{ url('adjustments') }}">Adjustments</a></li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="la la-recycle"></i> <span class="menu-title">Payroll</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+                <li><a @if (\Request::is('payroll')) class="active" @endif href="{{ url('payroll') }}">Payroll Run</a></li>
+                <li><a @if (\Request::is('payroll-history*')) class="active" @endif href="{{ url('payroll-history') }}">Payroll History</a></li>
+                <li><a @if (\Request::is('payroll-remarks*')) class="active" @endif href="{{ url('payroll-remarks') }}">Payroll Remarks</a></li>
+            </ul>
+        </li>
+
+        <li @if (\Request::is('report*') || \Request::is('generate-report*')) class="active" @endif>
+            <a href="{{url('/report')}}"><i class="la la-flag"></i> <span class="menu-title">Reports</span></a>
+        </li>
+
+        <li class="menu-title">
+            <span>System</span>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="la la-gear"></i> <span> Configurations</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+
+                <li>
+                    <a @if (\Request::is('allowances*')) class="active" @endif href="{{url('/allowances')}}"><span>Allowances</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('departments*')) class="active" @endif href="{{url('/departments')}}"> <span>Departments</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('grade_level*')) class="active" @endif href="{{url('/grade_level')}}"> <span>Grade Levels</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('calendar*')) class="active" @endif href="{{url('/calendar')}}"> <span>Calendar</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('provinces*')) class="active" @endif href="{{url('/provinces')}}"> <span>Provinces</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('working_hours*')) class="active" @endif href="{{url('/working_hours')}}"> <span>Working Hours/Days</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('project*')) class="active" @endif href="{{ url('/project') }}">Projects</a>
+                </li>
+                <li>
+                    <a @if (\Request::is('exchangeRates*')) class="active" @endif href="{{url('/exchangeRates')}}"> <span>Exchange Rates</span></a>
+                </li>
+                <li>
+                    <a @if (\Request::is('options*')) class="active" @endif href="{{url('/options')}}"> <span>Options</span></a>
+                </li>
+            </ul>
+        </li>
+        <li class="submenu">
+            <a href="#"><i class="la la-code"></i> <span> Developer Options</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+
+                <li>
+                    <a @if (\Request::is('contract_type*')) class="active" @endif href="{{url('/contract_type')}}"> <span>Contract Types</span></a>
                 </li>
 
-                <li class="submenu">
-                    <a href="#"><i class="la la-calendar"></i> <span class="menu-title">Timesheet</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a @if (\Request::is('mhttimes')) class="active" @endif href="{{ url('/mhttimes') }}">FHID Times</a></li>
-                        <li><a @if (\Request::is('overtimes')) class="active" @endif href="{{ url('/overtimes') }}">Overtimes</a></li>
-                        <li><a @if (\Request::is('timesheet')) class="active" @endif href="{{ url('/timesheet') }}">Generate Multiple</a></li>
-                        <li><a @if (\Request::is('timesheet-single')) class="active" @endif href="{{ url('/timesheet-single') }}">Generate Single</a></li>
-                    </ul>
+                <li>
+                    <a @if (\Request::is('leavetype*')) class="active" @endif href="{{url('/leavetype')}}">Absence Types</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="submenu">
+            <a href="#"><i class="la la-lock"></i> <span>Security</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+
+                <li>
+                    <a @if (\Request::is('backups*')) class="active" @endif href="{{url('/backups')}}">Backups</a>
                 </li>
 
-                <li class="submenu">
-                    <a href="#"><i class="la la-sign-out"></i> <span class="menu-title">Absences</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a @if (\Request::is('leaves*')) class="active" @endif href="{{ url('/leaves') }}">Absence Request</a></li>
-                        <li><a @if (\Request::is('leave-records*')) class="active" @endif href="{{ url('/leave-records') }}">Absence Records</a></li>
-                        <li><a @if (\Request::is('leave-report*')) class="active" @endif href="{{ url('/leave-report') }}"> Absence Reports</a></li>
-                        <li><a @if (\Request::is('leaveTransfer*')) class="active" @endif href="{{ url('/leaveTransfer') }}">Absence Adjustment</a></li>
-
-                    </ul>
+                <li>
+                    <a @if (\Request::is('activity-logs*')) class="active" @endif href="{{url('/activity-logs')}}">Activity Logs</a>
                 </li>
+            </ul>
+        </li>
 
-                <li class="submenu">
-                    <a href="#"><i class="la la-money"></i> <span class="menu-title">Payments</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a @if (\Request::is('advance_payments*')) class="active" @endif href="{{ url('advance_payments') }}">Advance Payment</a></li>
-                        <li><a @if (\Request::is('adjustments*')) class="active" @endif href="{{ url('adjustments') }}">Adjustments</a></li>
-                    </ul>
-                </li>
-
-                <li class="submenu">
-                    <a href="#"><i class="la la-recycle"></i> <span class="menu-title">Payroll</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a @if (\Request::is('payroll')) class="active" @endif href="{{ url('payroll') }}">Payroll Run</a></li>
-                        <li><a @if (\Request::is('payroll-history*')) class="active" @endif href="{{ url('payroll-history') }}">Payroll History</a></li>
-                        <li><a @if (\Request::is('payroll-remarks*')) class="active" @endif href="{{ url('payroll-remarks') }}">Payroll Remarks</a></li>
-                    </ul>
-                </li>
-
-                <li @if (\Request::is('report*') || \Request::is('generate-report*')) class="active" @endif>
-                    <a href="{{url('/report')}}"><i class="la la-flag"></i> <span class="menu-title">Reports</span></a>
-                </li>
-
-                <li class="menu-title">
-                    <span>System</span>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="la la-gear"></i> <span> Configurations</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-
-                        <li>
-                            <a @if (\Request::is('allowances*')) class="active" @endif href="{{url('/allowances')}}"><span>Allowances</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('departments*')) class="active" @endif href="{{url('/departments')}}"> <span>Departments</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('grade_level*')) class="active" @endif href="{{url('/grade_level')}}"> <span>Grade Levels</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('calendar*')) class="active" @endif href="{{url('/calendar')}}"> <span>Calendar</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('provinces*')) class="active" @endif href="{{url('/provinces')}}"> <span>Provinces</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('working_hours*')) class="active" @endif href="{{url('/working_hours')}}"> <span>Working Hours/Days</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('project*')) class="active" @endif href="{{ url('/project') }}">Projects</a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('exchangeRates*')) class="active" @endif href="{{url('/exchangeRates')}}"> <span>Exchange Rates</span></a>
-                        </li>
-                        <li>
-                            <a @if (\Request::is('options*')) class="active" @endif href="{{url('/options')}}"> <span>Options</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="submenu">
-                    <a href="#"><i class="la la-code"></i> <span> Developer Options</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-
-                        <li>
-                            <a @if (\Request::is('contract_type*')) class="active" @endif href="{{url('/contract_type')}}"> <span>Contract Types</span></a>
-                        </li>
-
-                        <li>
-                            <a @if (\Request::is('leavetype*')) class="active" @endif href="{{url('/leavetype')}}">Absence Types</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="submenu">
-                    <a href="#"><i class="la la-lock"></i> <span>Security</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-
-                        <li>
-                            <a @if (\Request::is('backups*')) class="active" @endif href="{{url('/backups')}}">Backups</a>
-                        </li>
-
-                        <li>
-                            <a @if (\Request::is('activity-logs*')) class="active" @endif href="{{url('/activity-logs')}}">Activity Logs</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="submenu">
-                    <a href="#"><i class="la la-user"></i> <span class="menu-title">User</span> <span class="menu-arrow"></span></a>
-                    <ul style="display: none;">
-                        <li><a @if (\Request::is('register*')) class="active" @endif href="{{ url('/register') }}">Add User</a></li>
-                        <li><a @if (\Request::is('users*')) class="active" @endif href="{{ url('/users') }}">All Users</a></li>
-                    </ul>
-                </li>*@
+        <li class="submenu">
+            <a href="#"><i class="la la-user"></i> <span class="menu-title">User</span> <span class="menu-arrow"></span></a>
+            <ul style="display: none;">
+                <li><a @if (\Request::is('register*')) class="active" @endif href="{{ url('/register') }}">Add User</a></li>
+                <li><a @if (\Request::is('users*')) class="active" @endif href="{{ url('/users') }}">All Users</a></li>
+            </ul>
+        </li>*@
             </ul>
 
         </div>

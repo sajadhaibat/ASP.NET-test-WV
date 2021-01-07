@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication8.Data;
 using WebApplication8.Models;
@@ -26,8 +27,23 @@ namespace ASpNEtCoreMain.Controllers
             return View(employees);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            // This is to return a select list of another model
+            var movies = await _context.Movie.ToListAsync();
+            ViewData["movies"] = new SelectList(movies, "Id", "Title");
+
+            // To retun a custom show of select list like (superstart + id) text in 
+            // select list
+            var superStars = await _context.SuperStars.ToListAsync();
+            IEnumerable<SelectListItem> selectList = from s in superStars
+                                                     select new SelectListItem
+                                                     {
+                                                         Value = s.Id.ToString(),
+                                                         Text = s.name + " " + s.Id.ToString()
+                                                     };
+            ViewData["superStars"] = new SelectList(selectList, "Value", "Text") ;
+
             return View();
         }
 
