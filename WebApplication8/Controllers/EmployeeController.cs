@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using WebApplication8.Models;
 
 namespace ASpNEtCoreMain.Controllers
 {
+    // Use following action in case you want to authenticate all actions
+    //[Authorize]
     public class EmployeeController : Controller
     {
         private readonly DataBase _context;
@@ -19,6 +22,8 @@ namespace ASpNEtCoreMain.Controllers
             _context = context;
         }
 
+        // Use following action in case you want to authenticate this actions
+        [Authorize]
         public async Task<IActionResult> Index()
         {
            
